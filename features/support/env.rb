@@ -27,6 +27,6 @@ After do | scenario |
   if scenario.passed?
     api.update_test(sessionid, { :success => true })
   else
-    api.update_test(sessionid, { :success => true })
+    api.update_test(sessionid, { :success => false })
   end
 end
