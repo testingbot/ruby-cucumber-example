@@ -1,5 +1,6 @@
 begin require 'rspec/expectations'; rescue LoadError; require 'spec/expectations'; end
 require 'selenium-webdriver'
+require 'testingbot'
 
 Before do | scenario |
   capabilities = Selenium::WebDriver::Remote::Capabilities.new
@@ -7,7 +8,7 @@ Before do | scenario |
   capabilities['browserName'] = ENV['browserName']
   capabilities['platform'] = ENV['platform']
   capabilities['name'] = "#{scenario.feature.name} - #{scenario.name}"
-  
+
   url = "https://#{ENV['TB_KEY']}:#{ENV['TB_SECRET']}@hub.testingbot.com/wd/hub".strip
 
   client = Selenium::WebDriver::Remote::Http::Default.new
@@ -22,4 +23,10 @@ After do | scenario |
   puts "TestingBotSessionId=#{sessionid} job-name=#{jobname}"
 
   @browser.quit
+  api = TestingBot::Api.new(ENV['TB_KEY'], ENV['TB_SECRET'])
+  if scenario.passed?
+    api.update_test(sessionid, { :success => true })
+  else
+    api.update_test(sessionid, { :success => true })
+  end
 end
