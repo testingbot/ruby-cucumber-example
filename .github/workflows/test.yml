@@ -1,0 +1,24 @@
+name: Test Changes
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby: ['2.7', '3.0', '3.3', head]
+    name: Ruby ${{ matrix.ruby }} test
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+          bundler-cache: true
+      - name: Build and test
+        run: |
+          sudo apt-get -yqq install libpq-dev
+          bundle exec rake test_testingbot
+        env:
+          TB_KEY: ${{ secrets.TB_KEY }}
+          TB_SECRET: ${{ secrets.TB_SECRET }}
