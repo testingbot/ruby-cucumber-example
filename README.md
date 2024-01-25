@@ -1,3 +1,5 @@
+[![Test Changes](https://github.com/testingbot/ruby-cucumber-example/actions/workflows/test.yml/badge.svg)](https://github.com/testingbot/ruby-cucumber-example/actions/workflows/test.yml)
+
 ## TestingBot - Ruby Cucumber
 
 TestingBot provides an online grid of browsers and mobile devices to run Automated tests via Selenium WebDriver.
