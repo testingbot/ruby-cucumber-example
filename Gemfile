@@ -1,8 +1,9 @@
 source "https://www.rubygems.org"
 
-gem 'cucumber', '>=2.0.0'
+gem 'cucumber'
 gem 'rspec'
-gem 'selenium-webdriver', '~> 3.0'
+gem 'selenium-webdriver'
 gem 'parallel_tests'
 gem 'rake'
 gem 'testingbot'
+gem 'cuke_modeler'

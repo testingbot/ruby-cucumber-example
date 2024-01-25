@@ -1,9 +1,7 @@
-Feature: Google can search
+Feature: TestingBot HomePage
 
 Background:
-  Given I am on Google
+  Given I am on TestingBot
 
-Scenario: Search for a term
-  When I fill in "q" found by "name" with "TestingBot"
-  And I submit
-  Then I should see title "TestingBot - Google Search"
+Scenario: Check the title
+  Then I should see title "TestingBot: Cross Browser Testing and Mobile App Testing"

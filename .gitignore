@@ -9,6 +9,7 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+junit_reports/
 
 # Used by dotenv library to load environment variables.
 # .env
