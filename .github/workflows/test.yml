@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: [latest]
+        ruby: ['3.3']
     name: Ruby ${{ matrix.ruby }} test
     steps:
       - uses: actions/checkout@v3
